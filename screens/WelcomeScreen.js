@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
-export default function WelcomeScreen() {
+import { View, Text, StyleSheet, Button } from 'react-native';
+export default function WelcomeScreen({ navigation }) {
 
 return (
 
@@ -14,8 +14,12 @@ return (
 
 <View style={styles.footer}>
 
-<Text style={styles.footerText}>Lab 3: Flexbox Layout</Text>
+<Button
+title="Go to My Tasks"
 
+onPress={() => navigation.navigate('AddTask')}
+
+/>
 </View>
 </View>
 );
@@ -34,6 +38,5 @@ emoji: { fontSize: 64, marginBottom: 12 },
 title: { fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' },
 subtitle: { fontSize: 14, color: '#C7D2E8', marginTop: 6 },
 footer: { paddingBottom: 40, alignItems: 'center' },
-footerText: { color: '#9FB0D0', fontSize: 12 },
 
 });
