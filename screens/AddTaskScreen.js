@@ -70,6 +70,10 @@ setTasks([...tasks, newTask]);
 setTaskText('');
 setErrorMessage('');
 }
+function handleDeleteTask(id) {
+setTasks(tasks.filter((t) => t.id !== id));
+
+}
 function handleToggleTask(id) {
 
 setTasks(
@@ -107,7 +111,13 @@ onChangeText={setTaskText}
 )}
 <FlatList
 data={tasks} keyExtractor={(item) => item.id} renderItem={({ item }) => (
-<TaskCard title={item.title} done={item.done} onToggle={() => handleToggleTask(item.id)}
+<TaskCard
+title={item.title}
+done={item.done}
+
+onToggle={() => handleToggleTask(item.id)}
+onDelete={() => handleDeleteTask(item.id)}
+
 />
 )}
 
